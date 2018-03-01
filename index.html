@@ -10,10 +10,11 @@
         <h1 id="title">Smash Up Faction Randomizer</h1>
 
         <div id="instructions">Select the sets that you want to play with, then you can select or deselect factions within those sets. Enter the number of players and hit 'Go!' Have fun!</div>
+        <hr/>
 
         <div id="app">
             <div id="expansionsChild">
-                <h1>Expansions</h1>
+                <h1 class="topTitles">Expansions</h1>
                 <ul id="expansionsList">
                     <li  v-for="expansion in expansions">
                         <input class="expansion" type="checkbox" v-bind:id="expansion" v-bind:value="expansion" v-on:click="selectExpansion">
@@ -24,7 +25,7 @@
 
             </div>
             <div id="factionsChild">
-                <h1 v-if="availableFactions.length > 0">Factions</h1>
+                <h1 class="topTitles" v-if="availableFactions.length > 0">Factions</h1>
                 <ul>
                     <li v-for="faction in availableFactions">
                         <input type="checkbox" class="availableFaction" v-bind:id="faction" v-bind:checked="selectedFactions.indexOf(faction) > -1" v-bind:value="faction" v-on:click="selectFaction">
@@ -34,17 +35,20 @@
 
             </div>
             <div id="playerSection">
+                <hr/>
                 <h1>Players</h1>
-                <input type="text" id="playerCount" v-model="playerTextEntry">
-                <input type="button" id="randomize" value="Go!" v-on:click="randomizeFactions"/>
+                <div class="centerPlease">
+                    <input type="text" id="playerCount" v-model="playerTextEntry">
+                    <input type="button" id="randomize" value="Go!" v-on:click="randomizeFactions"/>
+                </div>
             </div>
             <div id="resultChild">
+                <hr v-if="randomPlayerFactions.length > 0"/>
                 <h1 v-if="randomPlayerFactions.length > 0">Smashed Up Combinations</h1>
-                <ul>
-                    <li v-for="player in randomPlayerFactions">
-                        {{player.first}} {{player.second}}
-                    </li>
-                </ul>
+                        <div class="resultItem" v-for="player in randomPlayerFactions">
+                            {{player.first}} {{player.second}}
+                        </div>
+                <h1 v-if="randomPlayerFactions.length > 0">May the best player win!</h1>
             </div>
 
         </div>
