@@ -152,7 +152,9 @@ input[type=checkbox]:checked + label{
 
 @media screen and (max-width: 800px){
     #app{
+        width: 100%;
         display: grid;
+        grid-template-columns: auto;
         grid-template-areas: "expansions" 
                             "factions"
                             "players"
