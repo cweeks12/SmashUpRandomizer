@@ -53,7 +53,7 @@ var app = new Vue({
             Vigilantes: 'That \'70s Expansion',
             Kung_Fu_Fighters: 'That \'70s Expansion',
             Geeks: 'Big Geeky Box',
-            All_Stars: 'All_Star Event Kit',
+            All_Stars: 'All Star Event Kit',
             Sheep: 'Sheep Promo',
         },
 
@@ -81,7 +81,7 @@ var app = new Vue({
                 'Big in Japan',
                 'That \'70s Expansion',
                 'Big Geeky Box',
-                'All-Star Event Kit',
+                'All Star Event Kit',
                 'Sheep Promo',
             ],
             selectedFactions: [],
@@ -139,6 +139,10 @@ var app = new Vue({
             }
         },
         randomizeFactions: function() {
+            if (this.selectedExpansions.length < 1){
+                alert("Select the sets you want to play with");
+                return;
+            }
             if (isNaN(this.players) || this.players < 2 || this.players > 10 ){
                 alert("Please choose a valid number of players");
                 return;
@@ -160,9 +164,13 @@ var app = new Vue({
 
             this.randomPlayerFactions = [];// reset it
             for (let i = 0; i < randomFactions.length; i+=2){
-                this.randomPlayerFactions.push({first: this.selectedFactions[randomFactions[i]].replace(/_/,' '), second: this.selectedFactions[randomFactions[i+1]].replace(/_/,' ')});
+                // This nasty regex chain is to singularize any first factions. I think I'll write an API that does this some day.
+                this.randomPlayerFactions.push(
+                        {first: this.selectedFactions[randomFactions[i]]      
+                          .replace(/_/g,' ').replace(/ves$/, 'f').replace(/ies$/, 'y')
+                          .replace(/sses$/, 'sss').replace(/o(e)?s$/,'o').replace(/s$/, '').replace(/^Zomby$/, 'Zombie') ,
+                        second: this.selectedFactions[randomFactions[i+1]].replace(/_/g,' ')});
             }
-            console.log(this.randomPlayerFactions);
         }
     },
     watch: {},

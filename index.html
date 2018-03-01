@@ -3,31 +3,50 @@
     <head>
         <title>Smash Up Faction Randomizer</title>
         <link href="/smashup/styles.css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Anton|Oxygen" rel="stylesheet">
     </head>
     <body>
 
+        <h1 id="title">Smash Up Faction Randomizer</h1>
+
+        <div id="instructions">Select the sets that you want to play with, then you can select or deselect factions within those sets. Enter the number of players and hit 'Go!'. Have fun!</div>
+
         <div id="app">
-            <input type="text" id="playerCount" v-model="playerTextEntry">
-            <input type="button" id="randomize" value="Go!" v-on:click="randomizeFactions"/>
-            <ul>
-                <li v-for="expansion in expansions">
-                    <input type="checkbox" v-bind:value="expansion" v-on:click="selectExpansion">
-                    <label>{{expansion}}</label>
+            <h1>Expansions</h1>
+            <ul id="expansionsList">
+                <li  v-for="expansion in expansions">
+                    <input class="expansion" type="checkbox" v-bind:id="expansion" v-bind:value="expansion" v-on:click="selectExpansion">
+                    <label v-bind:for="expansion">{{expansion}}</label>
                 </li>
 
             </ul>
-            <ul style="float:left;">
+
+            <hr/>
+            <h1 v-if="availableFactions.length > 0">Factions</h1>
+            <ul>
                 <li v-for="faction in availableFactions">
-                    <input type="checkbox" v-bind:checked="selectedFactions.indexOf(faction) > -1" v-bind:value="faction" v-on:click="selectFaction">
-                    <label><span class="faction">{{faction.replace(/_/g, ' ')}}</span>&nbsp;<span class="set">({{factionSets[faction]}})</span></label>
+                    <input type="checkbox" class="availableFaction" v-bind:id="faction" v-bind:checked="selectedFactions.indexOf(faction) > -1" v-bind:value="faction" v-on:click="selectFaction">
+                    <label v-bind:for="faction"><span class="faction">{{faction.replace(/_/g, ' ')}}</span>&nbsp;<span class="set">({{factionSets[faction]}})</span></label>
                 </li>
-                <li v-for="player in randomPlayerFactions" style="font-size: 1.5em;">
-                    {{player.first.replace(/(oe)?s$/,'')}} {{player.second}}
+            </ul>
+
+            <hr v-if="availableFactions.length > 0"/>
+            <h1>Players</h1>
+            <div id="playerSection">
+                <input type="text" id="playerCount" v-model="playerTextEntry">
+                <input type="button" id="randomize" value="Go!" v-on:click="randomizeFactions"/>
+            </div>
+            <hr v-if="randomPlayerFactions.length > 0"/>
+            <h1 v-if="randomPlayerFactions.length > 0">Smashed Up Combinations</h1>
+            <ul>
+                <li v-for="player in randomPlayerFactions">
+                    {{player.first}} {{player.second}}
                 </li>
             </ul>
 
         </div>
         <div id="footer">
+            <hr/>
             The code is hosted smashingly on <a href="https://github.com/cweeks12/SmashUpRandomizer">Github</a>. 
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
