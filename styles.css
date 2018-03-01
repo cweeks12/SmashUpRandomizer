@@ -1,0 +1,15 @@
+#footer {
+    text-align: center;
+}
+
+#app {
+    background-color: #ff0;
+}
+
+.set {
+    font-style: italic;
+}
+
+.faction {
+    font-weight: bold;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Smash Up Faction Randomizer</title>
+        <link href="/smashup/styles.css" rel="stylesheet"/>
+    </head>
+    <body>
+
+        <div id="app">
+            <input type="text" id="playerCount" v-model="playerTextEntry">
+            <input type="button" id="randomize" value="Go!" v-on:click="randomizeFactions"/>
+            <ul>
+                <li v-for="expansion in expansions">
+                    <input type="checkbox" v-bind:value="expansion" v-on:click="selectExpansion">
+                    <label>{{expansion}}</label>
+                </li>
+
+            </ul>
+            <ul>
+                <li v-for="faction in availableFactions">
+                    <input type="checkbox" v-bind:checked="selectedFactions.indexOf(faction.name) > -1" v-bind:value="faction.name" v-on:click="selectFaction">
+                    <label><span class="faction">{{faction.name}}</span>&nbsp;<span class="set">({{faction.set}})</span></label>
+                </li>
+                <li v-for="faction in selectedFactions" style="font-size: 1.5em;">
+                    {{faction}}
+                </li>
+            </ul>
+
+        </div>
+        <div id="footer">
+            The code is hosted smashingly on <a href="https://github.com/cweeks12/SmashUpRandomizer">Github</a>. 
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+        <script text="type/javascript" src="/smashup/script.js">
+        </script>
+    </body>
+</html>
