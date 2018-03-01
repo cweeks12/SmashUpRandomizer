@@ -9,7 +9,7 @@ body {
 }
 #app {
     display: grid;
-    grid-template-columns: 1fr, 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas: "expansions factions"
                         "players players"
                         "results results";
@@ -148,4 +148,14 @@ input[type=checkbox]:checked + label{
     height: 100%;
     padding: 10px;
     width: 25%;
+}
+
+@media screen and (max-width: 800px){
+    #app{
+        display: grid;
+        grid-template-areas: "expansions" 
+                            "factions"
+                            "players"
+                            "results";
+    }
 }
