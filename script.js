@@ -109,7 +109,7 @@ var app = new Vue({
                 this.selectedExpansions.splice(index,1);
                 // remove any factions from active factions too
                 this.factions.forEach((faction) => {
-                    if (this.selectedExpansions.indexOf(this.factionSets[faction]) > -1){
+                    if ((!(this.selectedExpansions.indexOf(this.factionSets[faction]) > -1)) && (this.selectedFactions.indexOf(faction) > -1)){
                         this.selectedFactions.splice(this.selectedFactions.indexOf(faction), 1);
                     }
                 });
