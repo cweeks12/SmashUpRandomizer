@@ -160,7 +160,7 @@ var app = new Vue({
 
             this.randomPlayerFactions = [];// reset it
             for (let i = 0; i < randomFactions.length; i+=2){
-                this.randomPlayerFactions.push({first: this.selectedFactions[randomFactions[i]], second: this.selectedFactions[randomFactions[i+1]]});
+                this.randomPlayerFactions.push({first: this.selectedFactions[randomFactions[i]].replace(/_/,' '), second: this.selectedFactions[randomFactions[i+1]].replace(/_/,' ')});
             }
             console.log(this.randomPlayerFactions);
         }

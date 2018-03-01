@@ -16,13 +16,13 @@
                 </li>
 
             </ul>
-            <ul>
+            <ul style="float:left;">
                 <li v-for="faction in availableFactions">
                     <input type="checkbox" v-bind:checked="selectedFactions.indexOf(faction) > -1" v-bind:value="faction" v-on:click="selectFaction">
                     <label><span class="faction">{{faction.replace(/_/g, ' ')}}</span>&nbsp;<span class="set">({{factionSets[faction]}})</span></label>
                 </li>
-                <li v-for="faction in selectedFactions" style="font-size: 1.5em;">
-                    {{faction}}
+                <li v-for="player in randomPlayerFactions" style="font-size: 1.5em;">
+                    {{player.first.replace(/(oe)?s$/,'')}} {{player.second}}
                 </li>
             </ul>
 
