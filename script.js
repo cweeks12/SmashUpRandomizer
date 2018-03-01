@@ -1,239 +1,93 @@
 var app = new Vue({
     el: '#app',
     data: {
-        factions: [
+        factionSets: 
         {
-            name: 'Zombies',
-            set: 'Base Set',
+            Zombies: 'Base Set',
+            Wizards: 'Base Set',
+            Tricksters: 'Base Set',
+            Robots: 'Base Set',
+            Ninjas: 'Base Set',
+            Pirates: 'Base Set',
+            Aliens: 'Base Set',
+            Dinosaurs: 'Base Set',
+            Bear_Cavalry: 'Awesome Level 9000',
+            Ghosts: 'Awesome Level 9000',
+            Killer_Plants: 'Awesome Level 9000',
+            Steampunks: 'Awesome Level 9000',
+            Elder_Things: 'The Obligatory Cthulu Set',
+            Innsmouth: 'The Obligatory Cthulu Set',
+            Cthulu_Cultists: 'The Obligatory Cthulu Set',
+            Miskatonic_University: 'The Obligatory Cthulu Set',
+            Cyborg_Apes: 'Science Fiction Double Feature',
+            Shapeshifters: 'Science Fiction Double Feature',
+            Super_Spies: 'Science Fiction Double Feature',
+            Time_Travelers: 'Science Fiction Double Feature',
+            Giant_Ants: 'Monster Smash',
+            Mad_Scientists: 'Monster Smash',
+            Vampires: 'Monster Smash',
+            Werewolves: 'Monster Smash',
+            Fairies: 'Pretty Pretty Smash Up',
+            Kitty_Cats: 'Pretty Pretty Smash Up',
+            Mythic_Horses: 'Pretty Pretty Smash Up',
+            Princesses: 'Pretty Pretty Smash Up',
+            Dragons: 'It\'s Your Fault!',
+            Mythic_Greeks: 'It\'s Your Fault!',
+            Sharks: 'It\'s Your Fault!',
+            Tornadoes: 'It\'s Your Fault!',
+            Superheroes: 'It\'s Your Fault!',
+            Star_Roamers: 'Cease and Desist',
+            Astro_Knights: 'Cease and Desist',
+            Changerbots: 'Cease and Desist',
+            Ignobles: 'Cease and Desist',
+            Teddy_Bears: 'What Were We Thinking?',
+            Grandmas: 'What Were We Thinking?',
+            Rockstars: 'What Were We Thinking?',
+            Explorers: 'What Were We Thinking?',
+            Kaiju: 'Big in Japan',
+            Mystical_Girls: 'Big in Japan',
+            Mega_Troopers: 'Big in Japan',
+            Itty_Critters: 'Big in Japan',
+            Truckers: 'That \'70s Expansion',
+            Disco_Dancers: 'That \'70s Expansion',
+            Vigilantes: 'That \'70s Expansion',
+            Kung_Fu_Fighters: 'That \'70s Expansion',
+            Geeks: 'Big Geeky Box',
+            All_Stars: 'All_Star Event Kit',
+            Sheep: 'Sheep Promo',
         },
-        {
-            name: 'Wizards',
-            set: 'Base Set',
-        },
-        {
-            name: 'Tricksters',
-            set: 'Base Set',
-        },
-        {
-            name: 'Robots',
-            set: 'Base Set',
-        },
-        {
-            name: 'Ninjas',
-            set: 'Base Set',
-        },
-        {
-            name: 'Pirates',
-            set: 'Base Set',
-        },
-        {
-            name: 'Aliens',
-            set: 'Base Set',
-        },
-        {
-            name: 'Dinosaurs',
-            set: 'Base Set',
-        },
-        {
-            name: 'Bear Cavalry',
-            set: 'Awesome Level 9000',
-        },
-        {
-            name: 'Ghosts',
-            set: 'Awesome Level 9000',
-        },
-        {
-            name: 'Killer Plants',
-            set: 'Awesome Level 9000',
-        },
-        {
-            name: 'Steampunks',
-            set: 'Awesome Level 9000',
-        },
-        {
-            name: 'Elder Things',
-            set: 'The Obligatory Cthulu Set',
-        },
-        {
-            name: 'Innsmouth',
-            set: 'The Obligatory Cthulu Set',
-        },
-        {
-            name: 'Cthulu Cultists',
-            set: 'The Obligatory Cthulu Set',
-        },
-        {
-            name: 'Miskatonic University',
-            set: 'The Obligatory Cthulu Set',
-        },
-        {
-            name: 'Cyborg Apes',
-            set: 'Science Fiction Double Feature',
-        },
-        {
-            name: 'Shapeshifters',
-            set: 'Science Fiction Double Feature',
-        },
-        {
-            name: 'Super Spies',
-            set: 'Science Fiction Double Feature',
-        },
-        {
-            name: 'Time Travelers',
 
+        factions: [ 
+            'Zombies', 'Wizards', 'Tricksters', 'Robots', 'Ninjas', 'Pirates', 'Aliens', 'Dinosaurs',
+            'Bear_Cavalry', 'Ghosts', 'Killer_Plants', 'Steampunks', 'Elder_Things', 'Innsmouth', 'Cthulu_Cultists',
+            'Miskatonic_University', 'Cyborg_Apes', 'Shapeshifters', 'Super_Spies', 'Time_Travelers', 'Giant_Ants',
+            'Mad_Scientists', 'Vampires', 'Werewolves', 'Fairies', 'Kitty_Cats', 'Mythic_Horses', 'Princesses',
+            'Dragons', 'Mythic_Greeks', 'Sharks', 'Tornadoes', 'Superheroes', 'Star_Roamers', 'Astro_Knights',
+            'Changerbots', 'Ignobles', 'Teddy_Bears', 'Grandmas', 'Rockstars', 'Explorers', 'Kaiju', 'Mystical_Girls',
+            'Mega_Troopers', 'Itty_Critters', 'Truckers', 'Disco_Dancers', 'Vigilantes', 'Kung_Fu_Fighters',
+            'Geeks', 'All_Stars', 'Sheep',
+            ],
 
-            set: 'Science Fiction Double Feature',
-        },
-        {
-            name: 'Giant Ants',
-            set: 'Monster Smash',
-        },
-        {
-            name: 'Mad Scientists',
-            set: 'Monster Smash',
-        },
-        {
-            name: 'Vampires',
-            set: 'Monster Smash',
-        },
-        {
-            name: 'Werewolves',
-            set: 'Monster Smash',
-        },
-        {
-            name: 'Fairies',
-            set: 'Pretty Pretty Smash Up',
-        },
-        {
-            name: 'Kitty Cats',
-            set: 'Pretty Pretty Smash Up',
-        },
-        {
-            name: 'Mythic Horses',
-            set: 'Pretty Pretty Smash Up',
-        },
-        {
-            name: 'Princesses',
-            set: 'Pretty Pretty Smash Up',
-        },
-        {
-            name: 'Dragons',
-            set: 'It\'s Your Fault!',
-        },
-        {
-            name: 'Mythic Greeks',
-            set: 'It\'s Your Fault!',
-        },
-        {
-            name: 'Sharks',
-            set: 'It\'s Your Fault!',
-        },
-        {
-            name: 'Tornadoes',
-            set: 'It\'s Your Fault!',
-        },
-        {
-            name: 'Superheroes',
-            set: 'It\'s Your Fault!',
-        },
-        {
-            name: 'Star Roamers',
-            set: 'Cease and Desist',
-        },
-        {
-            name: 'Astro Knights',
-            set: 'Cease and Desist',
-        },
-        {
-            name: 'Changerbots',
-            set: 'Cease and Desist',
-        },
-        {
-            name: 'Ignobles',
-            set: 'Cease and Desist',
-        },
-        {
-            name: 'Teddy Bears',
-            set: 'What Were We Thinking?',
-        },
-        {
-            name: 'Grandmas',
-            set: 'What Were We Thinking?',
-        },
-        {
-            name: 'Rockstars',
-            set: 'What Were We Thinking?',
-        },
-        {
-            name: 'Explorers',
-            set: 'What Were We Thinking?',
-        },
-        {
-            name: 'Kaiju',
-            set: 'Big in Japan',
-        },
-        {
-            name: 'Mystical Girls',
-            set: 'Big in Japan',
-        },
-        {
-            name: 'Mega Troopers',
-            set: 'Big in Japan',
-        },
-        {
-            name: 'Itty Critters',
-            set: 'Big in Japan',
-        },
-        {
-            name: 'Truckers',
-            set: 'That \'70s Expansion',
-        },
-        {
-            name: 'Disco Dancers',
-            set: 'That \'70s Expansion',
-        },
-        {
-            name: 'Vigilantes',
-            set: 'That \'70s Expansion',
-        },
-        {
-            name: 'Kung Fu Fighters',
-            set: 'That \'70s Expansion',
-        },
-        {
-            name: 'Geeks',
-            set: 'Big Geeky Box',
-        },
-        {
-            name: 'All-Stars',
-            set: 'All-Star Event Kit',
-        },
-        {
-            name: 'Sheep',
-            set: 'Sheep Promo',
-        },
-        ],
-
-        expansions: [
-            'Base Set',
-            'Awesome Level 9000',
-            'The Obligatory Cthulu Set',
-            'Science Fiction Double Feature',
-            'Monster Smash',
-            'Pretty Pretty Smash Up',
-            'It\'s Your Fault!',
-            'Cease and Desist',
-            'What Were We Thinking?',
-            'Big in Japan',
-            'That \'70s Expansion',
-            'Big Geeky Box',
-            'All-Star Event Kit',
-            'Sheep Promo',
-        ],
-        selectedFactions: [],
-        selectedExpansions: [],
-        playerTextEntry : "2",
-        randomPlayerFactions: [],
+            expansions: [
+                'Base Set',
+                'Awesome Level 9000',
+                'The Obligatory Cthulu Set',
+                'Science Fiction Double Feature',
+                'Monster Smash',
+                'Pretty Pretty Smash Up',
+                'It\'s Your Fault!',
+                'Cease and Desist',
+                'What Were We Thinking?',
+                'Big in Japan',
+                'That \'70s Expansion',
+                'Big Geeky Box',
+                'All-Star Event Kit',
+                'Sheep Promo',
+            ],
+            selectedFactions: [],
+            selectedExpansions: [],
+            playerTextEntry : "2",
+            randomPlayerFactions: [],
     },
     computed: {
         players: function(){
@@ -242,20 +96,8 @@ var app = new Vue({
 
         availableFactions: function(){
             return this.factions.filter((faction) => {
-                return this.selectedExpansions.indexOf(faction.set) > -1;
-            }).sort((a,b) => {
-                let aName = a.name.toUpperCase();
-                let bName = b.name.toUpperCase();
-                if (aName < bName){
-                    return -1;
-                }
-                else if (bName < aName) {
-                    return 1;
-                }
-                else {
-                    return 0;
-                }
-            });
+                return this.selectedExpansions.indexOf(this.factionSets[faction]) > -1;
+            }).sort();
         }
 
     },
@@ -267,8 +109,8 @@ var app = new Vue({
                 this.selectedExpansions.splice(index,1);
                 // remove any factions from active factions too
                 this.factions.forEach((faction) => {
-                    if ((!(this.selectedExpansions.indexOf(faction.set) > -1)) && (this.selectedFactions.indexOf(faction.name) > -1)){
-                        this.selectedFactions.splice(this.selectedFactions.indexOf(faction.name, 1));
+                    if (this.selectedExpansions.indexOf(this.factionSets[faction]) > -1){
+                        this.selectedFactions.splice(this.selectedFactions.indexOf(faction), 1);
                     }
                 });
             }
@@ -277,8 +119,8 @@ var app = new Vue({
                 this.selectedExpansions.sort();
                 // add the factions that go with that expansion
                 this.factions.forEach((faction) => {
-                    if (faction.set === event.srcElement.value){
-                        this.selectedFactions.push(faction.name);
+                    if (this.factionSets[faction] === event.srcElement.value){
+                        this.selectedFactions.push(faction);
                     }
                 });
                 this.selectedFactions.sort();
@@ -293,19 +135,7 @@ var app = new Vue({
             }
             else {
                 this.selectedFactions.push(event.srcElement.value);
-                this.selectedFactions.sort((a,b) => {
-                    let aName = a.name.toUpperCase();
-                    let bName = b.name.toUpperCase();
-                    if (aName < bName){
-                        return -1;
-                    }
-                    else if (bName < aName) {
-                        return 1;
-                    }
-                    else {
-                        return 0;
-                    }
-                });
+                this.selectedFactions.sort();
             }
         },
         randomizeFactions: function() {
