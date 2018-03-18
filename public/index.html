@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Smash Up Faction Randomizer</title>
+        <link href="/styles.css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Anton|Oxygen" rel="stylesheet">
+    </head>
+    <body>
+
+        <h1 id="title">Smash Up Faction Randomizer</h1>
+
+        <p id="instructions">Select the sets that you want to play with, then you can select or deselect factions within those sets. Enter the number of players and hit 'Go!' Have fun!</p>
+        <p id="instructions">If you'd like to learn more about Smash Up, check out the <a href="https://www.alderacsite.com/smash-up-home/">Publisher's Website</a></p>
+        <hr/>
+
+        <div id="app">
+            <div id="expansionsChild">
+                <h1 class="topTitles">Expansions</h1>
+                <ul id="expansionsList">
+                    <li  v-for="expansion in expansions">
+                        <input class="expansion.name" type="checkbox" v-bind:id="expansion.name" v-bind:value="expansion.name" v-on:click="selectExpansion(expansion.name)" v-bind:checked="expansion.selected">
+                        <label v-bind:for="expansion.name">{{expansion.name}}</label>
+                    </li>
+
+                </ul>
+
+            </div>
+            <div id="factionsChild">
+                <h1 class="topTitles" v-if="factions.length > 0">Factions</h1>
+                <ul>
+                    <li v-for="faction in factions">
+                        <input type="checkbox" class="availableFaction" v-bind:id="faction.name" v-bind:checked="faction.selected" v-bind:value="faction.name" v-on:click="selectFaction(faction.name)">
+                        <label v-bind:for="faction.name"><span class="faction">{{faction.name.replace(/_/g, ' ')}}</span></label>
+                    </li>
+                </ul>
+
+            </div>
+            <div id="playerSection">
+                <hr/>
+                <h1>Players</h1>
+                <div class="centerPlease">
+                    <p v-show="selectedFactions / 2 < players">You must have at least 2 factions selected per player playing</p>
+                    <input type="text" id="playerCount" v-model="playerTextEntry">
+                    <input v-show="selectedFactions / 2 >= players" type="button" id="randomize" value="Go!" v-on:click="randomizeFactions"/>
+                </div>
+            </div>
+            <div id="resultChild">
+                <hr v-if="randomPlayerFactions.length > 0"/>
+                <h1 v-if="randomPlayerFactions.length > 0">Smashed Up Combinations</h1>
+                <div class="resultItem" v-for="player in randomPlayerFactions">
+                    {{player.first}} {{player.second}}
+                </div>
+            </div>
+
+        </div>
+        <div id="footer">
+            The code is hosted smashingly on <a href="https://github.com/cweeks12/SmashUpRandomizer">Github</a>. 
+        </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js" integrity="sha256-pU9euBaEcVl8Gtg+FRYCtin2vKLN8sx5/4npZDmY2VA=" crossorigin="anonymous"></script>
+<script text="type/javascript" src="/script.js">
+</script>
+    </body>
+</html>
